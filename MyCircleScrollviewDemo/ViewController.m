@@ -103,6 +103,23 @@
 }
 
 #pragma mark - UIScrollView Delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    float c = scrollView.contentOffset.x/self.view.bounds.size.width;//滚动视图偏移量比例
+    int p = (int)c;//当前显示的视图序号
+    float f = fabsf(c-p);//当前视图的偏移量
+    
+    MyCustomView *v1 = [self.view viewWithTag:100+p];//当前视图
+    MyCustomView *v2 = [self.view viewWithTag:100+p+1];//即将出现的视图
+    float scale1 = 1-f/10.0;//当前视图的大小变化
+    float alpha1 = f/2.0;//当前视图的阴影变化
+    float scale2 = 1-(1.0-f)/10.0;//即将出现的视图的大小变化
+    float alpha2 = (1.0-f)/2.0;//即将出现视图的阴影变化
+    v1.transform = CGAffineTransformMakeScale(scale1, scale1);//设置当前视图的大小缩放
+    v1.backgroundColor = [UIColor colorWithWhite:0 alpha:alpha1];//设置当前视图的阴影透明度
+    v2.transform = CGAffineTransformMakeScale(scale2, scale2);//设置即将出现视图的大小缩放
+    v2.backgroundColor = [UIColor colorWithWhite:0 alpha:alpha2];//设置即将出现视图的阴影透明度
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (PAGE_NUM) {
         if (scrollView.contentOffset.x<_scrollview.bounds.size.width) {
