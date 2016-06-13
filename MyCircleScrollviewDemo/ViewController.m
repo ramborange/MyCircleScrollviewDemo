@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "MyCustomView.h"
 
-#define PAGE_NUM   2
+#define PAGE_NUM   5
 
 @interface ViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
