@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Qpb-Kd-R0i">
+    <dependencies>
+        <deployment version="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="SMy-zH-fuX">
+            <objects>
+                <navigationController id="Qpb-Kd-R0i" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tEB-gN-aYZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xZa-nc-QV3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wjr-Il-Z3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-693" y="354"/>
+        </scene>
+        <!--UIScrollView无线循环Demo-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4Q-t4-54J">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.96089743589743593" green="0.96089743589743593" blue="0.96089743589743593" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="FYq-9g-zGy"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nhb-pk-Zpc">
+                                <rect key="frame" x="200" y="500" width="200" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="8kQ-Bb-aaX"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" red="0.54160071437962698" green="0.63486438428750169" blue="0.87327724358974357" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.057457985418215722" green="0.12647874058331474" blue="0.91280048076923082" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="D4Q-t4-54J" secondAttribute="bottom" id="2Mt-1Y-FQ6"/>
+                            <constraint firstItem="D4Q-t4-54J" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="2jU-Ye-Dy8"/>
+                            <constraint firstItem="nhb-pk-Zpc" firstAttribute="centerX" secondItem="D4Q-t4-54J" secondAttribute="centerX" id="2rH-nU-WNh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="D4Q-t4-54J" secondAttribute="trailing" constant="-20" id="Mmq-9l-urw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nhb-pk-Zpc" secondAttribute="bottom" constant="63" id="YmK-up-Q3x"/>
+                            <constraint firstItem="D4Q-t4-54J" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="rnc-t6-Ngu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="UIScrollView无线循环Demo" id="voq-zd-ycr"/>
+                    <connections>
+                        <outlet property="pageControl" destination="nhb-pk-Zpc" id="tyu-nA-5Vf"/>
+                        <outlet property="scrollview" destination="D4Q-t4-54J" id="6bV-sD-QFY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="99" y="373"/>
+        </scene>
+    </scenes>
+</document>
